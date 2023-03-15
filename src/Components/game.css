@@ -1,0 +1,125 @@
+body{
+    height: 100%;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+#p1{
+    margin-left: 40vh;
+    left: 0;
+    position: absolute;
+    font-weight: bold;
+    margin-top: 5vh;
+}
+#restart{
+    position: absolute;
+    bottom: 0;
+    border-radius: 12px;
+    font-size: 2vh;
+    font-weight: bold;
+    border: 1px solid black;
+    background-color: black;
+    color: white;
+    transition: all 0.3s;
+    margin-bottom: 7vh;
+    margin-left: 10%;
+    height: 10vh;
+    width: 20vh;
+}
+#restart:hover{
+    background-color: white;
+    color: black;
+    transform: scale(1.25);
+}
+#p2{
+    margin-right: 40vh;
+    font-weight: bold;
+    right: 0;
+    position: absolute;
+    margin-top: 5vh;
+}
+#game{
+    display: grid;
+    margin-left: 0vh;
+    position: relative;
+    grid-template-columns: 150px 150px 150px;
+    grid-template-rows: 150px 150px 150px;
+    cursor: pointer;
+    width: 60vh;
+    margin-top: 20vh;
+}
+.tile{
+    color: black;
+    display: black;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 2vh;
+}
+.right-border{
+    border-right: 2px solid black;
+}
+.bottom-border{
+    border-bottom: 2px solid black;
+}
+.winningLine{
+    background-color: black;
+    position: absolute;
+    left: 0;
+}
+.winningLine-row1{
+    width: 92%;
+    height: 1vh;
+    top: 15%;
+}
+.winningLine-row2{
+    width: 92%;
+    height: 1vh;
+    top: 50%;
+}
+.winningLine-row3{
+    width: 92%;
+    height: 1vh;
+    top: 83%;
+}
+.winningLine-col1{
+    height: 100%;
+    width: 1vh;
+    left: 14%;
+}
+.winningLine-col2{
+    height: 100%;
+    width: 1vh;
+    left: 45%;
+}
+.winningLine-col3{
+    height: 100%;
+    width: 1vh;
+    left: 75%;
+}
+.winningLine-dia1{
+    height: 1vh;
+    width: 83%;
+    top: 50%;
+    left: 5%;
+    transform: skewY(45deg);
+}
+.winningLine-dia2{
+    height: 1vh;
+    width: 80%;
+    top: 50%;
+    left: 5%;
+    transform: skewY(-45deg);
+}
+#Redirect{
+    margin-top: 20vh;
+    position: absolute;
+    left: 0;
+    margin-left: 10vh;
+    color: black;
+    font-size: 4vh;
+}
+#Redirect:hover{
+    color: blue;
+}
