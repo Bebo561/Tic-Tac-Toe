@@ -1,0 +1,54 @@
+body{
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+#Vhuman{
+    background-color: red;
+    color: white;
+    float: left;
+    border: 1px solid black;
+    box-shadow: 0px 5px 5px black;
+    margin-top: 13vh;
+    height: 25vh;
+    width: 35vh;
+    margin-right: 5vh;
+    transition: all 0.3s;
+}
+#Vhuman:hover{
+    transform: scale(1.25);
+    color: black;
+    background-color: white;
+}
+#Name{
+    font-weight: bold;
+    font-size: 10vh;
+    text-align: center;
+    margin-top: 5vh;
+    text-transform: uppercase;
+}
+#choosePlayer{
+    margin-top: 2vh;
+    text-align: center;
+}
+#Csoto{
+    margin-top: 2vh;
+    text-align: center;
+}
+#Vcomp{
+    background-color: blue;
+    color: white;
+    height: 25vh;
+    width: 35vh;
+    float: right;
+    border: 1px solid black;
+    box-shadow: 0px 5px 5px black;
+    margin-top: 13vh;
+    transition: all 0.3s;
+}
+#Vcomp:hover{
+    transform: scale(1.25);
+    background-color: black;
+    color: white;
+}
