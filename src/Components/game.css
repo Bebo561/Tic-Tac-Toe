@@ -69,35 +69,68 @@ body{
     left: 0;
 }
 .winningLine-row1{
-    width: 92%;
+    width: 93%;
     height: 1vh;
     top: 15%;
-    transition: width 2s linear;
+    animation: 1s ease-out 0s 1 updateWidth;
 }
+@keyframes updateWidth {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: 93%;
+    }
+  }
 .winningLine-row2{
     width: 92%;
     height: 1vh;
     top: 50%;
+    animation: 1s ease-out 0s 1 updateWidth;
 }
 .winningLine-row3{
     width: 92%;
     height: 1vh;
     top: 83%;
+    animation: 1s ease-out 0s 1 updateWidth;
 }
+@keyframes updateheight {
+    0% {
+      height: 0%;
+    }
+    100% {
+      height: 93%;
+    }
+  }
 .winningLine-col1{
     height: 100%;
     width: 1vh;
     left: 14%;
+    animation: 1s ease-out 0s 1 updateheight;
 }
 .winningLine-col2{
     height: 100%;
     width: 1vh;
     left: 45%;
+    animation: 1s ease-out 0s 1 updateheight;
 }
 .winningLine-col3{
     height: 100%;
     width: 1vh;
     left: 75%;
+    animation: 1s ease-out 0s 1 updateheight;
+}
+@keyframes updateDia1 {
+    0% {
+      left: 0%;
+      width: 0%;
+      top: 0%;
+    }
+    100% {
+      top: 50%;
+      width: 83%;
+      left: 5%;
+    }
 }
 .winningLine-dia1{
     height: 1vh;
@@ -105,13 +138,27 @@ body{
     top: 50%;
     left: 5%;
     transform: skewY(45deg);
+    animation: 1s ease-out 0s 1 updateDia1;
+}
+@keyframes updateDia2 {
+    0% {
+    left: 5%;
+    width: 0%;
+    bottom: 6%;
+    }
+    100% {
+      width: 80%;
+      left: 5%;
+      bottom: 50%;
+    }
 }
 .winningLine-dia2{
     height: 1vh;
     width: 80%;
-    top: 50%;
+    bottom: 50%;
     left: 5%;
-    transform: skewY(-45deg);
+    transform: skewY(135deg);
+    animation: 1s ease-out 0s 1 updateDia2;
 }
 #Redirect{
     margin-top: 20vh;
