@@ -1,6 +1,5 @@
 import React from 'react';
 import {useNavigate} from 'react-router-dom';
-import {useState} from 'react';
 import './chooseGame.css';
 
 function ChooseGame(){
@@ -20,7 +19,6 @@ function ChooseGame(){
             <h5 id="Csoto">By Carlodavid Soto</h5>
                 <button onClick={LinkHuman} id="Vhuman">Play Versus Human</button>
                 <button onClick={LinkComputer} id="Vcomp">Play Versus Computer</button>
-    
         </React.Fragment>
     )
 }
