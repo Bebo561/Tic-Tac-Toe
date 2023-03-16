@@ -46,6 +46,22 @@ function HumanGame(){
             return currTurn
         }
     }
+    function ScoreCtr(){
+        if(currTurn === playerOne){
+            pxScore++;
+            var score = document.getElementById('p1');
+            if(score !== null){
+                score.innerHTML = `Player X Wins- ${pxScore}`;
+            }
+        }
+        else{
+            poScore++;
+            var score = document.getElementById('p2');
+            if(score !== null){
+                score.innerHTML = `Player O Wins- ${poScore}`;
+            }
+        }
+    }
     function GameEnd(){
         for (const wins of winCondition) {
             //Object Destructuring
@@ -56,12 +72,19 @@ function HumanGame(){
             if (a !== '' && a === b && b === c) {
                 var line = document.getElementById("winningLine");
                 gameOn = false;
+                ScoreCtr();
                 if(line !== null){
                     line.classList.add(winningLine);
                     alert('Player ' + currTurn + ' Has Won');
                 }
             }
         }
+        let draw = !clickedTiles.includes('')
+            if(draw && gameOn){
+                gameOn = false;
+                alert("Draw!");
+                return;
+            }
     }
     const handleClick: React.MouseEventHandler<HTMLDivElement> = (e) => {
         e.preventDefault();
