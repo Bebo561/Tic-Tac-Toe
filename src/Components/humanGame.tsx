@@ -5,8 +5,8 @@ import {useState} from 'react';
 import { getElementError } from '@testing-library/react';
 
 function HumanGame(){
-    var p1Score = 0;
-    var p2Score = 0;
+    var pxScore = 0;
+    var poScore = 0;
     var playerOne = 'X';
     var playerTwo = 'O';
     let rand = Math.random();
@@ -16,17 +16,17 @@ function HumanGame(){
     function ChangeTurn(){
         if(currTurn === playerOne){
             currTurn = playerTwo;
-            var p = document.getElementById('turn')
+            var p = document.getElementById('turn');
             if(p != null){
-                p.innerHTML = currTurn;
+                p.innerHTML = `Turn - ${ currTurn}`;
             }
             return currTurn
         }
         else{
             currTurn = playerOne;
-            var p = document.getElementById('turn')
+            var p = document.getElementById('turn');
             if(p != null){
-                p.innerHTML = currTurn;
+                p.innerHTML =`Turn - ${ currTurn}`;
             }
             return currTurn
         }
@@ -45,8 +45,8 @@ function HumanGame(){
     return (
         <React.Fragment>
             <Link to="/compGame" id = "Redirect">Versus Computer</Link>
-            <h1 id ="p1">Player 1 Wins- {p1Score}</h1>
-            <h1 id = "p2">Player 2 Wins- {p2Score}</h1>
+            <h1 id ="p1">Player X Wins- {pxScore}</h1>
+            <h1 id = "p2">Player O Wins- {poScore}</h1>
                 <div id = "game">
                     <div className="tile right-border bottom-border" id = "1" onClick={handleClick}></div>
                     <div className="tile right-border bottom-border" id = "2" onClick={handleClick}></div>
