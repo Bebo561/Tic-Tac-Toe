@@ -5,11 +5,26 @@ import {useState} from 'react';
 import { getElementError } from '@testing-library/react';
 
 function HumanGame(){
+    var clickedTiles = ['', '', '', '', '', '', '', '', '']
     var pxScore = 0;
     var poScore = 0;
     var playerOne = 'X';
+    var gameOn = true;
     var playerTwo = 'O';
     let rand = Math.random();
+    var winCondition = [
+        { x: [0, 1, 2], winningLine: "winningLine-row1" },
+        { x: [3, 4, 5], winningLine: "winningLine-row2" },
+        { x: [6, 7, 8], winningLine: "winningLine-row3" },
+  
+        { x: [0, 3, 6], winningLine: "winningLine-col1" },
+        { x: [1, 4, 7], winningLine: "winningLine-col2" },
+        { x: [2, 5, 8], winningLine: "winningLine-col3" },
+  
+        { x: [0, 4, 8], winningLine: "winningLine-dia1" },
+        { x: [2, 4, 6], winningLine: "winningLine-dia1" },
+    ];
+
     var currTurn = '';
     rand >= 0.5 ? currTurn = playerOne : currTurn = playerTwo;
     //Called everytime a player turn ends
@@ -31,17 +46,53 @@ function HumanGame(){
             return currTurn
         }
     }
-
+    function GameEnd(){
+        for (const wins of winCondition) {
+            //Object Destructuring
+            const { x, winningLine } = wins;
+            var a = clickedTiles[x[0]];
+            var b = clickedTiles[x[1]];
+            var c = clickedTiles[x[2]];
+            if (a !== '' && a === b && b === c) {
+                var line = document.getElementById("winningLine");
+                gameOn = false;
+                if(line !== null){
+                    line.classList.add(winningLine);
+                    alert('Player ' + currTurn + ' Has Won');
+                }
+            }
+        }
+    }
     const handleClick: React.MouseEventHandler<HTMLDivElement> = (e) => {
         e.preventDefault();
         console.log(e.currentTarget.id);
         var cell = e.currentTarget
-        if(cell.innerHTML === ""){
+        if(cell.innerHTML === "" && gameOn === true){
+            var index = parseInt(e.currentTarget.id);
+            clickedTiles[index-1] = currTurn;
+            console.log(clickedTiles)
             cell = e.currentTarget
             cell.innerHTML = currTurn;
+            GameEnd();
             ChangeTurn();
         }
     };
+
+    function Restart(){
+        clickedTiles = ['', '', '', '', '', '', '', '', ''];
+        document.querySelectorAll('.tile').forEach(tile => tile.innerHTML = '');
+        var ran = Math.random();
+        gameOn = true;
+        var line = document.getElementById("winningLine");
+        if(line !== null){
+            line.className = 'winningLine';
+        }
+        ran >= 0.5 ? currTurn = playerOne : currTurn = playerTwo;
+        var p = document.getElementById('turn');
+        if(p != null){
+            p.innerHTML = `Turn - ${ currTurn}`;
+        }
+    }
     return (
         <React.Fragment>
             <Link to="/compGame" id = "Redirect">Versus Computer</Link>
@@ -60,9 +111,10 @@ function HumanGame(){
                     <div id="winningLine" className = "winningLine"></div>
                 </div>
                 <p id = "turn">Turn - {currTurn}</p>
-            <button id="restart">Restart</button>
+            <button id="restart" onClick={Restart}>Restart</button>
         </React.Fragment>
     )
 }
+
 
 export default HumanGame
