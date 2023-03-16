@@ -55,7 +55,7 @@ body{
     justify-content: center;
     align-items: center;
     text-align: center;
-    font-size: 2vh;
+    font-size: 10vh;
 }
 .right-border{
     border-right: 2px solid black;
@@ -122,4 +122,13 @@ body{
 }
 #Redirect:hover{
     color: blue;
+}
+#turn{
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 20vh;
+    font-size: 3vh;
+    font-weight: bold;
+    margin-left: 22vh;
+    justify-content: center;
 }
