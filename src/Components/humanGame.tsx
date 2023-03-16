@@ -1,17 +1,19 @@
 import React from 'react';
 import './game.css';
 import {Link} from 'react-router-dom';
-import {useState} from 'react';
-import { getElementError } from '@testing-library/react';
 
 function HumanGame(){
-    var clickedTiles = ['', '', '', '', '', '', '', '', '']
+    var clickedTiles = ['', '', '', '', '', '', '', '', ''];
+
     var pxScore = 0;
     var poScore = 0;
+
     var playerOne = 'X';
     var gameOn = true;
+
     var playerTwo = 'O';
     let rand = Math.random();
+
     var winCondition = [
         { x: [0, 1, 2], winningLine: "winningLine-row1" },
         { x: [3, 4, 5], winningLine: "winningLine-row2" },
@@ -22,7 +24,7 @@ function HumanGame(){
         { x: [2, 5, 8], winningLine: "winningLine-col3" },
   
         { x: [0, 4, 8], winningLine: "winningLine-dia1" },
-        { x: [2, 4, 6], winningLine: "winningLine-dia1" },
+        { x: [2, 4, 6], winningLine: "winningLine-dia2" },
     ];
 
     var currTurn = '';
